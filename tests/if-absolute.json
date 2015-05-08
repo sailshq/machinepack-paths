@@ -1,0 +1,83 @@
+{
+  "machine": "if-absolute",
+  "expectations": [
+    {
+      "using": {
+        "path": "/usr/local"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "path": "/usr/local/foo.png"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "path": "/bank-passwords.txt"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "path": "."
+      },
+      "outcome": "notAbsolute"
+    },
+    {
+      "using": {
+        "path": "screenshot.jpg"
+      },
+      "outcome": "notAbsolute"
+    },
+    {
+      "using": {
+        "path": "screenshots/extral33t.jpg"
+      },
+      "outcome": "notAbsolute"
+    },
+    {
+      "using": {
+        "path": "/Users/colewelsome/screenshots/extral33t.jpg"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "path": "~/Desktop/screenshots/extral33t.png"
+      },
+      "outcome": "notAbsolute"
+    },
+    {
+      "using": {
+        "path": "/Users/colewelsome/Desktop/screenshots/extral33t.png"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "path": "../Desktop/screenshots/extral33t.png"
+      },
+      "outcome": "notAbsolute"
+    },
+    {
+      "using": {
+        "path": "../"
+      },
+      "outcome": "notAbsolute"
+    },
+    {
+      "using": {
+        "path": "/../"
+      },
+      "outcome": "success"
+    },
+    {
+      "using": {
+        "path": "/"
+      },
+      "outcome": "success"
+    }
+  ]
+}
