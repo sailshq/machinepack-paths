@@ -1,0 +1,26 @@
+{
+  "name": "machinepack-paths",
+  "version": "0.1.0",
+  "description": "Utilities for handling and transforming file paths.",
+  "scripts": {
+    "test": "node ./node_modules/test-machinepack-mocha/bin/testmachinepack-mocha.js"
+  },
+  "keywords": [
+    "Paths",
+    "machines",
+    "machinepack"
+  ],
+  "author": "Mike McNeil",
+  "license": "MIT",
+  "dependencies":{
+    "machine": "^4.0.0"
+  },
+  "devDependencies": {
+    "test-machinepack-mocha": "^0.2.2"
+  },
+  "machinepack": {
+    "friendlyName": "Paths",
+    "machineDir": "machines/",
+    "machines": []
+  }
+}
