@@ -14,7 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "machine": "^4.0.0",
-    "path-is-absolute": "^1.0.0"
+    "path-is-absolute": "^1.0.0",
+    "path-parse": "^1.0.5"
   },
   "devDependencies": {
     "test-machinepack-mocha": "^0.2.2"
@@ -23,7 +24,9 @@
     "friendlyName": "Paths",
     "machineDir": "machines/",
     "machines": [
-      "if-absolute"
+      "if-absolute",
+      "resolve",
+      "parse"
     ]
   }
 }
