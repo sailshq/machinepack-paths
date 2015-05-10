@@ -26,7 +26,8 @@
     "machines": [
       "if-absolute",
       "resolve",
-      "parse"
+      "parse",
+      "home"
     ]
   }
 }
