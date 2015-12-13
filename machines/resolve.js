@@ -4,10 +4,13 @@ module.exports = {
   friendlyName: 'Resolve path',
 
 
-  description: 'Resolve one or more potentially-relative paths into an absolute path (like `cd`).',
+  description: 'Resolve and normalize a potentially-relative path into an absolute path.',
 
 
-  extendedDescription: 'Think of this as a sequence of `cd` commands in a shell-- except this machine doesn\'t actually do anything with the filesystem (i.e. the files/directories don\'t need to actually exist).',
+  extendedDescription: 'The resulting path is also normalized, and trailing slashes are removed unless the path gets resolved to the root directory.',
+
+
+  moreInfoUrl: 'https://nodejs.org/docs/latest/api/path.html#path_path_resolve_from_to',
 
 
   cacheable: true,
@@ -16,17 +19,21 @@ module.exports = {
   sync: true,
 
 
-  idempotent: true,
-
-
   inputs: {
 
-    paths: {
-      friendlyName: 'Path(s)...',
-      description: 'The paths to resolve, in top-to-bottom order.',
+    path: {
+      friendlyName: 'Path',
+      description: 'The path to be resolved to an absolute path.',
       extendedDescription: 'If first path is not absolute, it will be resolved from the process\'s present working directory (`pwd`).',
-      example: ['/usr/local/lib/node_modules'],
+      example: 'node_modules/sails/bin/sails.js',
       required: true
+    },
+
+    from: {
+      friendlyName: 'From',
+      description: 'The working directory to resolve from.',
+      extendedDescription: 'If omitted, the result path will be resolved from the process\'s present working directory (`pwd`).',
+      example: '/usr/local/lib'
     }
 
   },
@@ -35,8 +42,8 @@ module.exports = {
   exits: {
 
     success: {
-      friendlyName: 'then',
-      description: 'Returns an absolute path.',
+      outputVariableName: 'path',
+      outputDescription: 'An absolute path.',
       example: '/usr/local/lib/node_modules/sails/bin/sails.js'
     }
 
@@ -45,7 +52,7 @@ module.exports = {
 
   fn: function (inputs,exits) {
     var Path = require('path');
-    var result = Path.resolve.apply(Path, inputs.paths);
+    var result = Path.resolve.apply(Path, inputs.path);
     return exits.success(result);
   }
 

@@ -27,7 +27,8 @@
       "if-absolute",
       "resolve",
       "parse",
-      "home"
+      "home",
+      "join"
     ]
   }
 }
