@@ -32,7 +32,8 @@ module.exports = {
     from: {
       friendlyName: 'From',
       description: 'The working directory to resolve from.',
-      extendedDescription: 'If omitted, the result path will be resolved from the process\'s present working directory (`pwd`).',
+      extendedDescription: 'If omitted, the result path will be resolved from the process\'s present working directory (`pwd`). '+
+      'If `from` is not absolute, then it will first be resolved from the present working directory itself before being used to resolve `path`.',
       example: '/usr/local/lib'
     }
 
@@ -51,8 +52,19 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
-    var Path = require('path');
-    var result = Path.resolve.apply(Path, inputs.path);
+
+    var result;
+
+    // If `from` was provided, resolve `path` from it.
+    // (if `from` is a relative path it will be resolved relative to pwd first)
+    if (inputs.from) {
+      result = require('path').resolve(inputs.from, inputs.path);
+    }
+    // Otherwise, use pwd.
+    else {
+      result = require('path').resolve(inputs.path);
+    }
+
     return exits.success(result);
   }
 
