@@ -4,13 +4,13 @@ module.exports = {
   friendlyName: 'Home (~)',
 
 
-  description: 'Get the absolute path to your home directory on this computer (OS-agnostic)',
+  description: 'Get the absolute path to your home directory on this computer (OS-agnostic).',
 
 
   sync: true,
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   inputs: {},
@@ -19,9 +19,9 @@ module.exports = {
   exits: {
 
     success: {
-      friendlyName: 'pathToHomeDir',
-      description: 'Returns the path to the home directory.',
-      example: '/Users/mikermcneil'
+      outputFriendlyName: 'Path to home dir',
+      outputDescription: 'The path to the home directory.',
+      outputExample: '/Users/mikermcneil'
     }
 
   },

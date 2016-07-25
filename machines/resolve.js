@@ -13,7 +13,7 @@ module.exports = {
   moreInfoUrl: 'https://nodejs.org/docs/latest/api/path.html#path_path_resolve_from_to',
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   sync: true,
@@ -22,7 +22,6 @@ module.exports = {
   inputs: {
 
     path: {
-      friendlyName: 'Path',
       description: 'The path to be resolved to an absolute path.',
       extendedDescription: 'If first path is not absolute, it will be resolved from the process\'s present working directory (`pwd`).',
       example: 'node_modules/sails/bin/sails.js',
@@ -30,7 +29,6 @@ module.exports = {
     },
 
     from: {
-      friendlyName: 'From',
       description: 'The working directory to resolve from.',
       extendedDescription: 'If omitted, the result path will be resolved from the process\'s present working directory (`pwd`). '+
       'If `from` is not absolute, then it will first be resolved from the present working directory itself before being used to resolve `path`.',
@@ -43,9 +41,9 @@ module.exports = {
   exits: {
 
     success: {
-      outputVariableName: 'path',
-      outputDescription: 'An absolute path.',
-      example: '/usr/local/lib/node_modules/sails/bin/sails.js'
+      outputFriendlyName: 'Resolved path',
+      outputDescription: 'An absolute path obtained by resolving and normalizing the input base and relative paths.',
+      outputExample: '/usr/local/lib/node_modules/sails/bin/sails.js'
     }
 
   },

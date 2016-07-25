@@ -13,7 +13,7 @@ module.exports = {
   moreInfoUrl: 'https://nodejs.org/docs/latest/api/path.html#path_path_join_path1_path2',
 
 
-  cacheable: true,
+  sideEffects: 'cacheable',
 
 
   sync: true,
@@ -22,7 +22,6 @@ module.exports = {
   inputs: {
 
     paths: {
-      friendlyName: 'Paths',
       description: 'The paths to join, in left-to-right order.',
       example: [ 'lib/node_modules' ],
       required: true
@@ -34,8 +33,9 @@ module.exports = {
   exits: {
 
     success: {
+      outputFriendlyName: 'Joined path',
       outputDescription: 'The combined path.',
-      example: 'lib/node_modules/sails/bin/sails.js'
+      outputExample: 'lib/node_modules/sails/bin/sails.js'
     }
 
   },

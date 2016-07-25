@@ -7,19 +7,15 @@ module.exports = {
   description: 'Parse a path to determine its component parts.',
 
 
-  cacheable: true,
+  sideEffects: 'idempotent',
 
 
   sync: true,
 
 
-  idempotent: true,
-
-
   inputs: {
 
     path: {
-      friendlyName: 'Path',
       description: 'The path to parse.',
       example: 'C:\\\\a\\b\\index.html',
       required: true
@@ -31,9 +27,9 @@ module.exports = {
   exits: {
 
     success: {
-      friendlyName: 'then',
-      description: 'Returns the various components of the provided path.',
-      example: {
+      outputFriendlyName: 'Parsed path',
+      outputDescription: 'The various components of the provided path.',
+      outputExample: {
         root: 'C:\\',
         dir: 'C:\\a\\b',
         base: 'index.html',
