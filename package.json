@@ -24,7 +24,7 @@
     "friendlyName": "Paths",
     "machineDir": "machines/",
     "machines": [
-      "if-absolute",
+      "is-absolute",
       "resolve",
       "parse",
       "home",

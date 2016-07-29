@@ -1,83 +1,96 @@
 {
-  "machine": "if-absolute",
+  "machine": "is-absolute",
   "expectations": [
     {
       "using": {
         "path": "/usr/local"
       },
-      "outcome": "success"
+      "outcome": "success",
+      "returns": true
     },
     {
       "using": {
         "path": "/usr/local/foo.png"
       },
-      "outcome": "success"
+      "outcome": "success",
+      "returns": true
     },
     {
       "using": {
         "path": "/bank-passwords.txt"
       },
-      "outcome": "success"
+      "outcome": "success",
+      "returns": true
     },
     {
       "using": {
         "path": "."
       },
-      "outcome": "notAbsolute"
+      "outcome": "success",
+      "returns": false
     },
     {
       "using": {
         "path": "screenshot.jpg"
       },
-      "outcome": "notAbsolute"
+      "outcome": "success",
+      "returns": false
     },
     {
       "using": {
         "path": "screenshots/extral33t.jpg"
       },
-      "outcome": "notAbsolute"
+      "outcome": "success",
+      "returns": false
     },
     {
       "using": {
         "path": "/Users/colewelsome/screenshots/extral33t.jpg"
       },
-      "outcome": "success"
+      "outcome": "success",
+      "returns": true
     },
     {
       "using": {
         "path": "~/Desktop/screenshots/extral33t.png"
       },
-      "outcome": "notAbsolute"
+      "outcome": "success",
+      "returns": false
     },
     {
       "using": {
         "path": "/Users/colewelsome/Desktop/screenshots/extral33t.png"
       },
-      "outcome": "success"
+      "outcome": "success",
+      "returns": true
     },
     {
       "using": {
         "path": "../Desktop/screenshots/extral33t.png"
       },
-      "outcome": "notAbsolute"
+      "outcome": "success",
+      "returns": false
     },
     {
       "using": {
         "path": "../"
       },
-      "outcome": "notAbsolute"
+      "outcome": "success",
+      "returns": false
     },
     {
       "using": {
         "path": "/../"
       },
-      "outcome": "success"
+      "outcome": "success",
+      "returns": true
     },
     {
       "using": {
         "path": "/"
       },
-      "outcome": "success"
+      "outcome": "success",
+      "returns": true
     }
   ]
 }
