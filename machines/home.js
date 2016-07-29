@@ -28,12 +28,20 @@ module.exports = {
 
 
   fn: function(inputs, exits) {
+
+    // Get the home directory from the environment, using the appropriate
+    // key for the current platform.
+    var homeDir = process.env[
+      (process.platform == 'win32') ?
+      'USERPROFILE' :
+      'HOME'
+    ];
+
+    // Use the `path` package's `.resolve()` to get an OS-appropriate
+    // absolute path for the home directory, and return it through
+    // the `success` exit.
     return exits.success(
-      require('path').resolve(process.env[
-        (process.platform == 'win32') ?
-        'USERPROFILE' :
-        'HOME'
-      ])
+      require('path').resolve(homeDir)
     );
   },
 

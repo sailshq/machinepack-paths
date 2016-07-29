@@ -42,9 +42,17 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+
+    // Import `path`.
     var Path = require('path');
-    var resultPath = Path.join.apply(Path, inputs.paths);
-    return exits.success(resultPath);
+
+    // Since "join" takes the paths to join as a variable number of arguments,
+    // we'll use `apply` to feed our array of strings in.
+    var joinedPath = Path.join.apply(Path, inputs.paths);
+
+    // Return the resulting path through the `success` exit.
+    return exits.success(joinedPath);
+
   }
 
 

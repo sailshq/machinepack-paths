@@ -7,7 +7,7 @@ module.exports = {
   description: 'Parse a path to determine its component parts.',
 
 
-  sideEffects: 'idempotent',
+  sideEffects: 'cacheable',
 
 
   sync: true,
@@ -42,8 +42,12 @@ module.exports = {
 
 
   fn: function (inputs,exits) {
+
     // Use `path-parse` polyfill for Node <= 0.12
     var pathParse = require('path-parse');
+
+    // Parse the input path into a dictionary and return it
+    // through the `success` exit.
     return exits.success(pathParse(inputs.path));
   }
 

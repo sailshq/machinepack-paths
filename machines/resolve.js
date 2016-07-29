@@ -51,19 +51,21 @@ module.exports = {
 
   fn: function (inputs,exits) {
 
-    var result;
+    // Declare a var to hold the resolved path.
+    var resolvedPath;
 
     // If `from` was provided, resolve `path` from it.
-    // (if `from` is a relative path it will be resolved relative to pwd first)
+    // (if `from` is a relative path it will be resolved relative to pwd first).
     if (inputs.from) {
-      result = require('path').resolve(inputs.from, inputs.path);
+      resolvedPath = require('path').resolve(inputs.from, inputs.path);
     }
     // Otherwise, use pwd.
     else {
-      result = require('path').resolve(inputs.path);
+      resolvedPath = require('path').resolve(inputs.path);
     }
 
-    return exits.success(result);
+    // Return the resolved path through the `success` exit.
+    return exits.success(resolvedPath);
   }
 
 
