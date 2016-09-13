@@ -13,7 +13,7 @@
   "author": "Mike McNeil",
   "license": "MIT",
   "dependencies": {
-    "machine": "^11.0.3",
+    "machine": "^13.0.0-11",
     "path-is-absolute": "^1.0.0",
     "path-parse": "^1.0.5"
   },
